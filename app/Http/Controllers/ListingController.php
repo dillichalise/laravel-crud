@@ -10,7 +10,9 @@ class ListingController extends Controller
 
     public function getListings()
     {
-        return view('listing.list', ['lists' => Listing::all()]);
+        return view('listing.list', [
+            'lists' => Listing::latest()->filter(request(['tag', 'search']),)->paginate(5)
+        ]);
     }
 
     public function getOne(Listing $id)
