@@ -31,3 +31,10 @@ Route::post('/user/login', [UserController::class, 'loginUser'])->middleware('gu
 
 // Logout user
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+// Show listing detail page
+Route::get('/list-detail/{id}', [ListingController::class, 'getOne']);
+
+
+// Delete list data
+Route::delete('/listing/{list}', [ListingController::class, 'delete'])->middleware('auth');
