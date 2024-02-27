@@ -19,4 +19,10 @@ class Listing extends Model
                 ->orWhere('description', 'like', '%' . request('search') . '%');
         }
     }
+
+    // Relationship with User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 }
