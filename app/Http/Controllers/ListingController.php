@@ -6,7 +6,6 @@ use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-
 class ListingController extends Controller
 {
 
@@ -88,7 +87,7 @@ class ListingController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos ', 'public');
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
         $listing->update($formFields);

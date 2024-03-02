@@ -35,8 +35,6 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 // Show listing detail page
 Route::get('/list-detail/{id}', [ListingController::class, 'getOne']);
 
-
-
 // Show add listing form
 Route::get('/listing/create', [ListingController::class, 'create'])->middleware('auth');
 
@@ -51,3 +49,6 @@ Route::put('/listing/{listing}', [ListingController::class, 'update'])->middlewa
 
 // Delete list data
 Route::delete('/listing/{list}', [ListingController::class, 'delete'])->middleware('auth');
+
+// Show users Listing
+Route::get('/listing/manage', [ListingController::class, 'getMyLists']);
