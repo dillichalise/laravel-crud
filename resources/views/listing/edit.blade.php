@@ -84,6 +84,10 @@
                 </label>
                 <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo"
                     value="{{ old('logo') ? old('logo') : $listing->logo }}" />
+
+                @error('logo')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-6">

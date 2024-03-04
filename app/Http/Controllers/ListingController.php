@@ -86,7 +86,12 @@ class ListingController extends Controller
             'description' => 'required'
         ]);
 
+        $messages = [
+            'logo.max' => 'The file size should not exceed 1 MB.', // Custom message for the max rule
+        ];
+
         if ($request->hasFile('logo')) {
+            $formFields = $request->validate(['logo' => 'file|max:1024'], $messages);
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
